@@ -1,0 +1,8 @@
+/.qodo
+/.venv
+/audio.wav
+/train_badapple.py
+/frames.raw
+/frames.meta
+/best_model.pt
+/extract_frames.py
