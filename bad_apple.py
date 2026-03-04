@@ -17,7 +17,6 @@ def get_terminal_size():
 
 
 def frame_to_ascii(gray_frame: np.ndarray, cols: int, rows: int, chars: str) -> str:
-    """Resize frame to (cols, rows) and map each pixel to an ASCII character."""
     resized = cv2.resize(gray_frame, (cols, rows), interpolation=cv2.INTER_AREA)
     indices = (resized / 255 * (len(chars) - 1)).astype(int)
     lines = ["".join(chars[i] for i in row) for row in indices]
@@ -25,7 +24,6 @@ def frame_to_ascii(gray_frame: np.ndarray, cols: int, rows: int, chars: str) -> 
 
 
 def play_audio(input_path: str, audio_proc_holder: list):
-    """Launch ffplay in a background thread to play audio. Stores the process so we can kill it on exit."""
     proc = subprocess.Popen(
         ["ffplay", "-nodisp", "-autoexit", "-vn", input_path],
         stdout=subprocess.DEVNULL,
